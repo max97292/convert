@@ -9,7 +9,6 @@ import { setUser } from '../../actions/user';
 function Conversion() {
     const [amount, setAmount] = useState('0');
     const [fromCurrency, setFromCurrency] = useState('USD');
-    //const [toCurrency, setToCurrency] = useState('USD');
     const [currencies, setCurrencies] = useState([]);
     const [curs, setCurs] = useState('');
     const [result, setResult] = useState(0);
