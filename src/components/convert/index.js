@@ -41,16 +41,30 @@ function Conversion() {
                     cursAr.push(response.data[i].rate);
                     i+=1;
                 }
-                setCurrencies(currencyAr);
-                setCurs(cursAr);
+                currencyAr.sort();
+                i= 0;
+                const cursArr = [];
+                const currArr = [];
+                currencyAr.forEach(function (element){
+                    i = 0;
+                    while (i < response.data.length){
+                        if (element === response.data[i].cc){
+                            cursArr.push(response.data[i].rate);
+                            currArr.push(element);
+                        }
+                        i+=1;
+                    }
+                });
+                setCurrencies(currArr);
+                setCurs(cursArr);
             });
     },[]);
 
     return (
         <div className="Converter">
             <div className="Form">
-                <p>USD: {curs[27]}</p>
-                <p>EUR: {curs[34]}</p>
+                <p>USD: {curs[52]}</p>
+                <p>EUR: {curs[14]}</p>
             </div>
             <h2>
                 <span>Currency</span> Converter
@@ -75,7 +89,7 @@ function Conversion() {
                 <button onClick={event => showCurrenciesAr(amount,currencies,fromCurrency,curs)}>Convert</button>
                 <button onClick={event => clear(amount)}><span role="img" aria-label="reload">🔄</span></button>
             </div>
-            {<h3>{result} UAH</h3>}
+            {<h3>{result.toFixed(2)} UAH</h3>}
         </div>
     );
 }
