@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import history from '../utils/history';
 
-import HomePage from '../containers/home';
+import ConvertPage from "../containers/convert";
 
 export default class MainRouter extends Component {
 
@@ -10,7 +10,7 @@ export default class MainRouter extends Component {
         return (
             <Router history={history}>
                 <Switch>
-                    <Route path="/" component={HomePage} />
+                    <Route path="/" component={ConvertPage} />
                 </Switch>
             </Router>
         );
