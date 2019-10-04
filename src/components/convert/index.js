@@ -76,6 +76,10 @@ function Conversion() {
                     type="text"
                     value={amount}
                     onChange={event => setAmount(event.target.value)}
+                    onKeyPress={event => {
+                        if (event.key === 'Enter'){
+                            showCurrenciesAr(amount,currencies,fromCurrency,curs);
+                        }}}
                 />
                 <select
                     name="from"
